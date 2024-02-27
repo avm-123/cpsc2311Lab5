@@ -78,18 +78,29 @@ node_t* readNodeInfo(FILE* input)
 // Function to print the linked list to a file
 void printList(FILE* output, node_t* head)
 {
+    // Print border before printing the list
+    printBorder(output);
+    
+    // Print a new line and the list header
+    fprintf(output, "\nList Info:\n\n");
+    
+    // Iterate through the list
     while (head != NULL) {
-// Print a border before each node information
-        printBorder(output);
- // Print node information to the output file
-        fprintf(output, "LIST INFO:\nName: %s %s\nDate of Birth: %d/%d/%d\nMajor: %s\nYear: %s\n",
+        // Print a border before each node information
+       
+        
+        // Print node information to the output file
+        fprintf(output, "Name:\t%s %s\nDate of Birth:\t%d %d, %d\nMajor:\t%s\nYear:\t%s\n\n",
                 head->data.firstName, head->data.lastName, head->data.birthday.month,
                 head->data.birthday.day, head->data.birthday.year, head->data.major,
                 head->data.classStand);
-// Move to the next node
-        head = head->next;
         
+        // Move to the next node
+        head = head->next;
     }
+    
+    // Print border after printing the list
+    printBorder(output);
 }
 // Function to delete the linked list and free memory
 void deleteList(node_t** head) {
