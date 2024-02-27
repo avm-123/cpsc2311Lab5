@@ -7,8 +7,9 @@
 #include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
- 
 
+// Define the month names
+const char* MONTH_NAMES[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 // Function to create a linked list from data in a file
 node_t* createList(FILE* fp, node_t** head)
@@ -63,7 +64,7 @@ node_t* readNodeInfo(FILE* input)
 // Read node data from the file
     int result = fscanf(input, "%49[^,],%49[^,],%d,%d,%d,%9[^,],%14[^\n]", 
                         newNode->data.lastName, newNode->data.firstName,
-                        &newNode->data.birthday.day, &newNode->data.birthday.month, &newNode->data.birthday.year,
+                        &newNode->data.birthday.month, &newNode->data.birthday.day, &newNode->data.birthday.year,
                         newNode->data.major, newNode->data.classStand);
 // Check if all data fields were successfully read
     if (result != 7) { 
@@ -82,18 +83,18 @@ void printList(FILE* output, node_t* head)
     printBorder(output);
     
     // Print a new line and the list header
-    fprintf(output, "\nList Info:\n\n");
+    fprintf(output, "\nList Info:\n");
     
     // Iterate through the list
     while (head != NULL) {
-        // Print a border before each node information
-       
         
-        // Print node information to the output file
-        fprintf(output, "Name:\t%s %s\nDate of Birth:\t%d %d, %d\nMajor:\t%s\nYear:\t%s\n\n",
-                head->data.firstName, head->data.lastName, head->data.birthday.month,
-                head->data.birthday.day, head->data.birthday.year, head->data.major,
-                head->data.classStand);
+        fprintf(output, "Name: %s %s\n", head->data.firstName, head->data.lastName);
+        fprintf(output, "Date of Birth: %s %d, %d\n", MONTH_NAMES[head->data.birthday.month-1],
+        head->data.birthday.day, head->data.birthday.year);
+        fprintf(output, "Major: %s\n", head->data.major);
+        fprintf(output, "Year: %s\n\n", head->data.classStand);
+        
+        
         
         // Move to the next node
         head = head->next;
