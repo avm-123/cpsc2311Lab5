@@ -19,7 +19,9 @@ typedef struct Birthday {
     int day;
     int month;
     int year;
+    char monthName[12];
 } Birthday;
+
 
 /* Struct student contains all the private information that each node has stored
  * This information will be printed to output file if successfully stored as node from input file
@@ -88,4 +90,3 @@ typedef struct Node {
     void deleteList(node_t** );
 
 #endif
-
