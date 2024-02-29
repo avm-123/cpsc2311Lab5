@@ -83,11 +83,11 @@ void printList(FILE* output, node_t* head)
     printBorder(output);
     
     // Print a new line and the list header
-    fprintf(output, "List Info:\n");
+    fprintf(output, "\nList Info:");
     
     // Iterate through the list
     while (head != NULL) {
-        
+        fprintf(output, "\n");
         fprintf(output, "Name:\t%s %s\n", head->data.firstName, head->data.lastName);
         fprintf(output, "Date of Birth:\t%s %d, %d\n", MONTH_NAMES[head->data.birthday.month-1],
         head->data.birthday.day, head->data.birthday.year);
@@ -119,5 +119,5 @@ void deleteList(node_t** head) {
 
 // Function to print a border to the output file
 void printBorder(FILE* output) {
-    fprintf(output, "********************************************************************************\n");
+    fprintf(output, "********************************************************************************");
 }
