@@ -62,7 +62,7 @@ node_t* readNodeInfo(FILE* input)
         exit(EXIT_FAILURE);
     }
 // Read node data from the file
-    int result = fscanf(input, "%49[^,],%49[^,],%d,%d,%d,%9[^,],%14[^\n]", 
+    int result = fscanf(input, "%49[^,],%49[^,],%d,%d,%d,%9[^,],%14[^\n]%*c", 
                         newNode->data.lastName, newNode->data.firstName,
                         &newNode->data.birthday.month, &newNode->data.birthday.day, &newNode->data.birthday.year,
                         newNode->data.major, newNode->data.classStand);
@@ -88,7 +88,8 @@ void printList(FILE* output, node_t* head)
     // Iterate through the list
     while (head != NULL) {
         fprintf(output, "\n");
-        fprintf(output, "Name:\t%s %s\n", head->data.firstName, head->data.lastName);
+        fprintf(output, "Name:\t%s ", head->data.firstName);
+        fprintf(output, "%s\n", head->data.lastName);
         fprintf(output, "Date of Birth:\t%d %d, %d\n", head->data.birthday.month,
         head->data.birthday.day, head->data.birthday.year);
         fprintf(output, "Major:\t%s\n", head->data.major);
