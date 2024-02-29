@@ -88,11 +88,11 @@ void printList(FILE* output, node_t* head)
     // Iterate through the list
     while (head != NULL) {
         
-        fprintf(output, "Name: %s %s\n", head->data.firstName, head->data.lastName);
-        fprintf(output, "Date of Birth: %s %d, %d\n", MONTH_NAMES[head->data.birthday.month-1],
+        fprintf(output, "Name:\t%s %s\n", head->data.firstName, head->data.lastName);
+        fprintf(output, "Date of Birth:\t%s %d, %d\n", MONTH_NAMES[head->data.birthday.month-1],
         head->data.birthday.day, head->data.birthday.year);
-        fprintf(output, "Major: %s\n", head->data.major);
-        fprintf(output, "Year: %s\n\n", head->data.classStand);
+        fprintf(output, "Major:\t%s\n", head->data.major);
+        fprintf(output, "Year:\t%s\n", head->data.classStand);
         
         
         
