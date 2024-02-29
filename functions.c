@@ -83,7 +83,7 @@ void printList(FILE* output, node_t* head)
     printBorder(output);
     
     // Print a new line and the list header
-    fprintf(output, "\nList Info:\n");
+    fprintf(output, "List Info:\n");
     
     // Iterate through the list
     while (head != NULL) {
