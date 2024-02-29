@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 // Define the month names
-const char* MONTH_NAMES[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+//const char* MONTH_NAMES[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 // Function to create a linked list from data in a file
 node_t* createList(FILE* fp, node_t** head)
@@ -89,7 +89,7 @@ void printList(FILE* output, node_t* head)
     while (head != NULL) {
         fprintf(output, "\n");
         fprintf(output, "Name:\t%s %s\n", head->data.firstName, head->data.lastName);
-        fprintf(output, "Date of Birth:\t%s %d, %d\n", MONTH_NAMES[head->data.birthday.month-1],
+        fprintf(output, "Date of Birth:\t%d %d, %d\n", head->data.birthday.month,
         head->data.birthday.day, head->data.birthday.year);
         fprintf(output, "Major:\t%s\n", head->data.major);
         fprintf(output, "Year:\t%s\n", head->data.classStand);
